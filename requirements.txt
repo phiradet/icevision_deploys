@@ -2,6 +2,6 @@
 
 streamlit
 Pillow
-icevision[all]
+icevision[all]==0.12.0
 torch==1.10.0+cpu
 torchvision==0.11.1+cpu
