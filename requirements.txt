@@ -6,4 +6,3 @@ icevision[all]==0.12.0
 torch==1.10.0+cu102
 torchvision==0.11.1+cu102
 numpy
-libpython3.7-dev
