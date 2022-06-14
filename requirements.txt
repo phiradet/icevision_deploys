@@ -1,5 +1,5 @@
 --find-links  https://download.pytorch.org/whl/torch_stable.html 
-
+--find-links  https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
 streamlit
 Pillow
 icevision[all]==0.12.0
@@ -9,3 +9,5 @@ numpy
 opencv-python-headless==4.5.4.60
 setuptools==59.5.0
 opencv-python==4.6.0.66
+mmcv-full==1.3.17
+mmdet==2.17.0
