@@ -7,4 +7,3 @@ torch==1.10.0+cu102
 torchvision==0.11.1+cu102
 numpy
 opencv-python-headless
-setuptools==59.5.0
