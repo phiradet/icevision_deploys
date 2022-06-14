@@ -6,6 +6,7 @@ from PIL import Image, ImageOps
 from random import randrange
 from distutils.version import LooseVersion
 import time
+import cv2
 
 st.title("ATK-OCR detection (AOC) Webapp.")
 
