@@ -2,7 +2,6 @@ import streamlit as st  #Web App
 from PIL import Image, ImageOps #Image Processing
 import time
 from unittest import result
-from pythainlp.util import isthai
 import numpy as np
 from icevision.all import *
 from icevision.models import *
