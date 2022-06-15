@@ -5,6 +5,7 @@ from unittest import result
 import numpy as np
 from icevision.all import *
 from icevision.models import *
+from distutils.version import LooseVersion, Version
 
 
 
