@@ -4,8 +4,8 @@ import time
 from unittest import result
 from pythainlp.util import isthai
 import numpy as np
-from icevision.all import *
-from icevision.models import *
+from icevision import tfms
+from icevision.models import model_from_checkpoint
 import easyocr as ocr  #OCR
 import editdistance
 
@@ -45,7 +45,7 @@ def img_resize(input_path,img_size): # padding
   return new_im
 
 
-checkpoint_path = "./ATK_result4_97.4.pth"
+checkpoint_path = "./AOC_weight_97.4.pth"
 
 checkpoint_and_model = model_from_checkpoint(checkpoint_path, 
     model_name='ross.efficientdet', 
@@ -69,7 +69,7 @@ valid_tfms = tfms.A.Adapter([*tfms.A.resize_and_pad(img_size), tfms.A.Normalize(
 def get_detection(img_path):
  
   #Get_Idcard_detail(file_path=img_path)
-  img = PIL.Image.open(img_path)
+  img = Image.open(img_path)
   img = ImageOps.exif_transpose(img) # fix image rotating
   width, height = img.size # get img_input size
   if (width == 1280) and (height == 1280):
@@ -107,7 +107,7 @@ def get_detection(img_path):
 def get_img_detection(img_path):
    
   #Get_Idcard_detail(file_path=img_path)
-  img = PIL.Image.open(img_path)
+  img = Image.open(img_path)
   img = ImageOps.exif_transpose(img) # fix image rotating
   width, height = img.size # get img_input size
   if (width == 1280) and (height == 1280):
