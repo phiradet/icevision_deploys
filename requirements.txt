@@ -2,7 +2,7 @@
 --find-links  https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
 streamlit==1.10.0
 Pillow==8.4.0
-icedata==0.5.1
+icevision[all] icedata
 icevision[all]==0.12.0
 torch==1.10.0+cu102
 torchvision==0.11.1+cu102
