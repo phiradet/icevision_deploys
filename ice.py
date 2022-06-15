@@ -41,7 +41,7 @@ def img_resize(input_path,img_size): # padding
   return new_im
 
 
-checkpoint_path = "./AOC_weight_97.4.pth"
+checkpoint_path = "./ATK_result4_97.4.pth"
 
 checkpoint_and_model = model_from_checkpoint(checkpoint_path, 
     model_name='ross.efficientdet', 
