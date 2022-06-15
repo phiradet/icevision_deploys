@@ -5,7 +5,6 @@ from unittest import result
 import numpy as np
 from icevision.all import tfms
 from icevision.models import model_from_checkpoint
-from distutils.version import LooseVersion, Version
 
 
 
