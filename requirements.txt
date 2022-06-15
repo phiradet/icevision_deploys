@@ -1,7 +1,6 @@
 --find-links  https://download.pytorch.org/whl/torch_stable.html 
 --find-links  https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
 streamlit
-setuptools==59.5.0
 Pillow
 icevision[all]==0.12.0
 torch==1.10.0+cu102
