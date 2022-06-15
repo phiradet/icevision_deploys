@@ -3,7 +3,7 @@ from PIL import Image, ImageOps #Image Processing
 import time
 from unittest import result
 import numpy as np
-from icevision.all import tfms
+from icevision import tfms
 from icevision.models import model_from_checkpoint
 
 
