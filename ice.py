@@ -2,10 +2,11 @@ import streamlit as st  #Web App
 from PIL import Image, ImageOps #Image Processing
 import time
 from unittest import result
+from pythainlp.util import isthai
 import numpy as np
-from icevision import tfms
-from icevision.models import model_from_checkpoint
-
+from icevision.all import *
+from icevision.models import *
+from distutils.version import LooseVersion, Version
 
 
 st.title("ATK-OCR detection (AOC) Webapp.")
@@ -41,7 +42,7 @@ def img_resize(input_path,img_size): # padding
   return new_im
 
 
-checkpoint_path = "./ATK_result4_97.4.pth"
+checkpoint_path = "./AOC_weight_97.4.pth"
 
 checkpoint_and_model = model_from_checkpoint(checkpoint_path, 
     model_name='ross.efficientdet', 
@@ -65,11 +66,11 @@ valid_tfms = tfms.A.Adapter([*tfms.A.resize_and_pad(img_size), tfms.A.Normalize(
 def get_detection(img_path):
  
   #Get_Idcard_detail(file_path=img_path)
-  img = Image.open(img_path)
+  img = PIL.Image.open(img_path)
   img = ImageOps.exif_transpose(img) # fix image rotating
   width, height = img.size # get img_input size
   if (width == 1280) and (height == 1280):
-    new_im = img
+    pred_dict  = model_type.end2end_detect(img, valid_tfms, model, class_map=class_map, detection_threshold=0.6)
   else:
     #im = im.convert('L') #Convert to gray
     old_size = img.size  # old_size[0] is in (width, height) format
@@ -79,15 +80,16 @@ def get_detection(img_path):
     new_im = Image.new("RGB", (1280, 1280))
     new_im.paste(img, ((1280-new_size[0])//2,
                         (1280-new_size[1])//2))
-
-
     pred_dict  = model_type.end2end_detect(new_im, valid_tfms, model, class_map=class_map, detection_threshold=0.6)
+
+
+    
     #st.write(new_im.size)
 
-  
+  labels, acc = pred_dict['detection']['labels'][0], pred_dict['detection']['scores'][0]
 
   try:
-    labels, acc = pred_dict['detection']['labels'][0], pred_dict['detection']['scores'][0]
+    
     acc = acc * 100
     if labels == "Neg":
       labels = "Negative"
@@ -102,7 +104,7 @@ def get_detection(img_path):
 def get_img_detection(img_path):
    
   #Get_Idcard_detail(file_path=img_path)
-  img = Image.open(img_path)
+  img = PIL.Image.open(img_path)
   img = ImageOps.exif_transpose(img) # fix image rotating
   width, height = img.size # get img_input size
   if (width == 1280) and (height == 1280):
