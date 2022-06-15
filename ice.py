@@ -5,7 +5,7 @@ from unittest import result
 import numpy as np
 from icevision.all import *
 from icevision.models import *
-import cv2
+
 
 
 st.title("ATK-OCR detection (AOC) Webapp.")
