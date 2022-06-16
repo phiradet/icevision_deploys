@@ -1,6 +1,6 @@
 --find-links  https://download.pytorch.org/whl/torch_stable.html 
 --find-links  https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
-opencv-python-headless
+opencv-python-headless<4.3
 opencv_contrib_python
 streamlit
 icedata[all]==0.5.1
