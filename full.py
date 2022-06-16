@@ -8,6 +8,7 @@ from icevision import tfms
 from icevision.models import model_from_checkpoint
 import easyocr as ocr  #OCR
 import editdistance
+import cv2
 
 st.title("ATK-OCR detection (AOC) Webapp.")
 
