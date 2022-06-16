@@ -5,7 +5,7 @@ from unittest import result
 from pythainlp.util import isthai
 import numpy as np
 from icevision import tfms
-from icevision.models import model_from_checkpoint
+from icevision.models.checkpoint import model_from_checkpoint
 import easyocr as ocr  #OCR
 import editdistance
 
