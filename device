@@ -5,7 +5,7 @@ from unittest import result
 from pythainlp.util import isthai
 import numpy as np
 #from icevision import tfms
-from icevision.models.checkpoint import model_from_checkpoint
+#from icevision.models.checkpoint import model_from_checkpoint
 import easyocr as ocr  #OCR
 import editdistance
 
@@ -47,11 +47,18 @@ def img_resize(input_path,img_size): # padding
 
 checkpoint_path = "./ATK_result4_97.4.pth"
 
-checkpoint_and_model = model_from_checkpoint(checkpoint_path, 
-    model_name='ross.efficientdet', 
-    backbone_name='tf_d2',
-    img_size=384, 
-    is_coco=False)
+def get_model_from_checkpoint():
+  from icevision.models.checkpoint import model_from_checkpoint
+  
+ 
+  checkpoint_and_model = model_from_checkpoint(checkpoint_path, 
+      model_name='ross.efficientdet', 
+      backbone_name='tf_d2',
+      img_size=384, 
+      is_coco=False)
+  return checkpoint_and_model
+  
+checkpoint_and_model = get_model_from_checkpoint()
 
 model_type = checkpoint_and_model["model_type"]
 backbone = checkpoint_and_model["backbone"]
